@@ -1,5 +1,11 @@
 import unittest
+import sys
+import os
 from machinetranslation.translator import english_to_french, french_to_english
+
+# Get the directory path of the translator module
+module_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(module_dir)
 
 class TranslatorTests(unittest.TestCase):
 
@@ -13,6 +19,4 @@ class TranslatorTests(unittest.TestCase):
         english_text = french_to_english(french)
         self.assertEqual(english_text, 'Good Morning')
 
-    
-if __name__ == '__main__':
-    unittest.main()
+
